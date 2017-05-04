@@ -28,7 +28,7 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf No country for Machine Learning}
+\title{\Large \bf A Movie Night with Machine Learning}
 
 %for single author (just remove % characters)
 \author{
@@ -94,24 +94,19 @@ always be attached to the word that preceded it, instead of going to the
 next line.
 
 \section{Implementation}
+We select to implement three different functionalities. The first one targets mostly the movie production studios and is about movie score predictions. The other two are statistics about the movies contained in the dataset and movie recommendations and they mostly target the simple viewers. \par 
+For our implementation we used apache spark and the scala programming language. In the subsection 3.1 is described how we implement the movie predictions and in the subsetion 3.2 are described the implementation of movies statistics and the recommendations.
 \subsection{Machine Learning}
+We implementated the movie score prediction using Machine Learning for this reason we select to use apache spark and scala. Spark provided us with MLlib a scalable machine learning library consisting common learning algorithms and utilities. Also it provides us with spark.ml which aims to provide a uniform set of high-level APIs that help users to create and tune a practical machine learning pipelines. \par 
 
-Here's a typical figure reference.  The figure is centered at the
-top of the column.  It's scaled.  It's explicitly placed.  You'll
-have to tweak the numbers to get what you want.\\
+Firstly we created a case class containg 28 fields, as many as the dataset features, and after parsing the initial dataset we set every feature to it's coresponding class field. We removed from the dataset movies containing commas in their titles because during splitting they generated more features than they should and they generated errors on our comma seperated csv file.\par 
 
-% you can also use the wonderful epsfig package...
-%\begin{figure}[t]
-%\begin{center}
-%\begin{picture}(300,150)(0,200)
-%\put(-15,-30){\special{psfile = fig1.ps hscale = 50 vscale = 50}}
-%\end{picture}\\
-%\end{center}
-%\caption{Wonderful Flowchart}
-%\end{figure}
+From our initial 28 features we select to keep only those who had meaning for our predictions, so features like "Title", "IMDBLink", "Country" etc. were dropped. We dropped in total 11 features that we thought it would had the least affect in the movie score prediction. \par 
 
-This text came after the figure, so we'll casually refer to Figure 1
-as we go on our merry way.
+Because our dataset contained a mix of string, double and integer features we had to transform our string features to numeric values. Fortunately spark.ml provides us with the StringIndexer function. StringIndexer converts String values into categorical indices which could me used by machine learning algorithms in ml library.\par 
+
+From our remaing 17 features we had to select only those that would positevly affect prediction of the movie imdb score. To achieve this we correlated our remaining features and excluded those which negatively affected the "imdb\_score" feature. Fortunately again MLlib provided us with the Statistics package which contained the necessary functions for the feature correlation.\par 
+
 
 \subsection{Statistics and Recommendations}
 
