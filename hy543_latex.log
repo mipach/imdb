@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.2.6)  7 MAY 2017 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.2.6)  7 MAY 2017 16:14
 entering extended mode
 **./hy543_latex.tex
 (hy543_latex.tex
@@ -349,11 +349,6 @@ Overfull \hbox (15.65414pt too wide) in paragraph at lines 164--164
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) (hy543_latex.ent
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 ) [3
 
 ] (hy543_latex.aux)
@@ -362,11 +357,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2005 strings out of 493335
- 29012 string characters out of 3140972
+ 1986 strings out of 493335
+ 28753 string characters out of 3140972
  92881 words of memory out of 3000000
- 5496 multiletter control sequences out of 15000+200000
- 41405 words of font info for 84 fonts, out of 3000000 for 9000
+ 5481 multiletter control sequences out of 15000+200000
+ 33322 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,8n,23p,777b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files/MikTeX/fonts/enc/dvips/fontname/8r.enc}<E:/Program Files/Mi
@@ -376,7 +371,7 @@ msfonts/cm/cmtt10.pfb><E:/Program Files/MikTeX/fonts/type1/public/amsfonts/cm/c
 mtt9.pfb><E:/Program Files/MikTeX/fonts/type1/urw/times/utmb8a.pfb><E:/Program 
 Files/MikTeX/fonts/type1/urw/times/utmr8a.pfb><E:/Program Files/MikTeX/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on hy543_latex.pdf (3 pages, 168833 bytes).
+Output written on hy543_latex.pdf (3 pages, 168641 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
