@@ -159,6 +159,7 @@ Using \texttt{randomSplit} we split our dataframe to two datasets. A train datas
 
 To evaluate our data we created a val \texttt{RegressionEvaluator} which we feed with our previous predictions. The room mean square error we had was 1.02 which considering our features and that the rating scale is from 0 to 10 is acceptable.
 
+We also tested another set of features to make predictions. Based on the Chuan Sun work on the movie predictions we used another set of features. This set includes the following features: "IMDBScore", "DirectorFbLikes", "Duration", "Actor1FbLikes", "Actor2FbLikes", "Actor3FbLikes", "FaceNumOnPostes", "Year", "Color", "Budget". Using our model, because we do not know exactly the parameters used in his model, we had root mean square error 1.04 using these features.  
 \section{Conclusion}
 
 A polite author always includes acknowledgments.  Thank everyone,

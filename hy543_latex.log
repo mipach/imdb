@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.2.6)  7 MAY 2017 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.2.6)  7 MAY 2017 23:09
 entering extended mode
 **./hy543_latex.tex
 (hy543_latex.tex
@@ -353,17 +353,27 @@ Underfull \hbox (badness 5878) in paragraph at lines 160--161
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 164--166
+Underfull \hbox (badness 1325) in paragraph at lines 162--163
+\OT1/ptm/m/n/10 pre-dic-tions we used an-other set of fea-tures. This
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 162--163
+\OT1/ptm/m/n/10 set in-cludes the fol-low-ing fea-tures: "IMDB-Score",
+ []
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 165--167
 \OT1/ptm/m/n/10 A po-lite au-thor al-ways in-cludes ac-knowl-edg-ments.
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 169--170
+Underfull \hbox (badness 1540) in paragraph at lines 170--171
 \OT1/ptm/m/n/10 You can down-load the code we used for the ma-
  []
 
 
-Overfull \hbox (15.65414pt too wide) in paragraph at lines 172--172
+Overfull \hbox (15.65414pt too wide) in paragraph at lines 173--173
  \OT1/cmtt/m/n/10 https://github.com/mipach/imdb/tree/master/src 
  []
 
@@ -371,9 +381,7 @@ Overfull \hbox (15.65414pt too wide) in paragraph at lines 172--172
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [3
-
-] (hy543_latex.aux)
+) [3] (hy543_latex.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -393,7 +401,7 @@ msfonts/cm/cmtt10.pfb><E:/Program Files/MikTeX/fonts/type1/public/amsfonts/cm/c
 mtt9.pfb><E:/Program Files/MikTeX/fonts/type1/urw/times/utmb8a.pfb><E:/Program 
 Files/MikTeX/fonts/type1/urw/times/utmr8a.pfb><E:/Program Files/MikTeX/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on hy543_latex.pdf (3 pages, 174274 bytes).
+Output written on hy543_latex.pdf (3 pages, 174914 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
