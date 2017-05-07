@@ -113,62 +113,41 @@ We initialize the Linear Regression Classifier estimator and then chain it with 
 
 \subsection{Statistics and Recommendations}
 
-It can get tricky typesetting Tcl and C code in LaTeX because they share
-a lot of mystical feelings about certain magic characters.  You
-will have to do a lot of escaping to typeset curly braces and percent
-signs, for example, like this:
-``The {\tt \%module} directive
-sets the name of the initialization function.  This is optional, but is
-recommended if building a Tcl 7.5 module.
-Everything inside the {\tt \%\{, \%\}}
-block is copied directly into the output. allowing the inclusion of
-header files and additional C code." \\
+For the Statistics and Recommendations we used map and reduce functions. We used the same case class we described in the section 3.1 to create a RDD with 28 features named \textbf{parsedPointsRdd}. Then we applied filter and ordering functions on it to produce the recommendations. For the statistics we applied filter functions to the \textbf{parsedPointsRdd} and then calculated the statistics. \par 
 
-Sometimes you want to really call attention to a piece of text.  You
-can center it in the column like this:
-\begin{center}
-{\tt \_1008e614\_Vector\_p}
-\end{center}
-and people will really notice it.\\
+For statistics we defined the following functions:
+\noindent
+{\bf \tt GreatMoviesStatistics\((\)):Double } \\ 
 
 \noindent
-The noindent at the start of this paragraph makes it clear that it's
-a continuation of the preceding text, not a new para in its own right.
-
-
-Now this is an ingenious way to get a forced space.
-{\tt Real~$*$} and {\tt double~$*$} are equivalent. 
-
-Now here is another way to call attention to a line of code, but instead
-of centering it, we noindent and bold it.\\
+{\bf \tt DirectorStatistics\((director:String\)):Double } \\ 
 
 \noindent
-{\bf \tt size\_t : fread ptr size nobj stream } \\
+{\bf \tt GerneStatistics\((gerne:String\)):Double } \\ 
 
-And here we have made an indented para like a definition tag (dt)
-in HTML.  You don't need a surrounding list macro pair.
-\begin{itemize}
-\item[]  {\tt fread} reads from {\tt stream} into the array {\tt ptr} at
-most {\tt nobj} objects of size {\tt size}.   {\tt fread} returns
-the number of objects read. 
-\end{itemize}
-This concludes the definitions tag.
+The \textbf{GreatMoviesStatistics} calculates the percentage of the movies that have IMDB score above 8, these are movies that considered top and everyone should probable see them. The \textbf{DirectorStatistics} calculates the percentage of movies that a specific director have directed. The \textbf{GerneStatistics} calculates the percentage of movies included in a specific gerne. \par
 
-\subsection{How to Build Your Paper}
 
-You have to run {\tt latex} once to prepare your references for
-munging.  Then run {\tt bibtex} to build your bibliography metadata.
-Then run {\tt latex} twice to ensure all references have been resolved.
-If your source file is called {\tt usenixTemplate.tex} and your {\tt
-  bibtex} file is called {\tt usenixTemplate.bib}, here's what you do:
-{\tt \small
-\begin{verbatim}
-latex usenixTemplate
-bibtex usenixTemplate
-latex usenixTemplate
-latex usenixTemplate
-\end{verbatim}
-}
+For recommendations we defined the following functions:
+
+\noindent
+{\bf \tt BestMoviesInCategory\((category:String\)) } \\
+
+\noindent
+{\bf \tt findTopTen  \((category:String,language:String,actor1name:String\)) } \\
+
+\noindent
+{\bf \tt findTitle\((category:String, language:String, actor1name:String, directorname:String\)) } \\
+
+The \textbf{BestMoviesInCategory} prints the top ten movies in a gerne, specified by the user. The \textbf{findTopTen} prints the top 10 movies based on the gerne, the movie language and the main actors name, these arguments are user specified. Finally the \textbf{findTitle} prints the titles of the movies that match some user specified creteria. The user can specify the gerne of the movie, the language of the movie, the main actors name and the directors name. If some of that arguments are not known  by the viewer it can be left empty by just passing as argument the empty string "". More than one movies can fit the above creteria so we limit the function to return the first ten movie titles based on their imdb score ordering. \par
+
+\bigskip
+
+\begin{figure}
+	
+	\includegraphics[width=75mm,scale=0.3]{correlation_matrix_image}
+	\caption{heatmap of the correlation matrix}
+\end{figure}
 
 \section{Results}
 
@@ -179,25 +158,14 @@ especially those who funded the work.
 
 \section{Availability}
 
-It's great when this section says that MyWonderfulApp is free software, 
-available via anonymous FTP from
+You can download the code we used for the machine learning predictions, recommendations and statistics from
 
 \begin{center}
-{\tt ftp.site.dom/pub/myname/Wonderful}\\
+{\tt https://github.com/mipach/imdb/tree/master/src}\\
 \end{center}
 
-Also, it's even greater when you can write that information is also 
-available on the Wonderful homepage at 
+You can run our code with little or no modications at all, using apache spark. This code is under no license so you can use it free but remeber to refer our work.
 
-\begin{center}
-{\tt http://www.site.dom/\~{}myname/SWIG}
-\end{center}
-
-Now we get serious and fill in those references.  Remember you will
-have to run latex twice on the document in order to resolve those
-cite tags you met earlier.  This is where they get resolved.
-We've preserved some real ones in addition to the template-speak.
-After the bibliography you are DONE.
 
 {\footnotesize \bibliographystyle{acm}
 \bibliography{../common/bibliography}}
