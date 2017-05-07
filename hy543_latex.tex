@@ -21,7 +21,7 @@
 
 % This version uses the latex2e styles, not the very ancient 2.09 stuff.
 \documentclass[letterpaper,twocolumn,10pt]{article}
-\usepackage{usenix,epsfig,endnotes,enumitem}
+\usepackage{usenix,epsfig,endnotes,enumitem,multicol}
 \begin{document}
 
 %don't want date printed
@@ -97,10 +97,16 @@ csd3161@csd.uoc.gr
 \item \textbf{aspect\_ratio}: Numeric variable, with its value describing the aspect ratio of the movie.
 \end{itemize}
 
+\begin{figure*}
+	
+	\includegraphics[width = \textwidth,height=6.2cm]{correlation_matrix_image}
+	\caption{heatmap of the correlation matrix}
+\end{figure*}
 
 \section{Implementation}
 We select to implement three different functionalities. The first one targets mostly the movie production studios and is about movie score predictions. The other two are statistics about the movies contained in the dataset and movie recommendations and they mostly target the simple viewers. \par 
 For our implementation we used apache spark and the scala programming language. In the subsection 3.1 is described how we implement the movie predictions and in the subsetion 3.2 are described the implementation of movies statistics and the recommendations.
+
 \subsection{Machine Learning}
 We implementated the movie score prediction using Machine Learning for this reason we select to use apache spark and scala. Spark provided us with MLlib a scalable machine learning library consisting common learning algorithms and utilities. Also it provides us with spark.ml which aims to provide a uniform set of high-level APIs that help users to create and tune a practical machine learning pipelines. \par 
 
@@ -146,14 +152,6 @@ For recommendations we defined the following functions:
 
 The \textbf{BestMoviesInCategory} prints the top ten movies in a gerne, specified by the user. The \textbf{findTopTen} prints the top 10 movies based on the gerne, the movie language and the main actors name, these arguments are user specified. Finally the \textbf{findTitle} prints the titles of the movies that match some user specified creteria. The user can specify the gerne of the movie, the language of the movie, the main actors name and the directors name. If some of that arguments are not known  by the viewer it can be left empty by just passing as argument the empty string "". More than one movies can fit the above creteria so we limit the function to return the first ten movie titles based on their imdb score ordering. \par
 
-\bigskip
-
-\begin{figure}
-	
-	\includegraphics[width=75mm,scale=0.3]{correlation_matrix_image}
-	\caption{heatmap of the correlation matrix}
-\end{figure}
-
 \section{Results}
 In this section we present our machine learning results and evaluate our methodology. We describe in more depth the the correlation process and discuss our evalutation.\par
 After loading our dataset and created our dataframe contaiining the 28 movie features we drop the features that we though it will have the least impact with the imdb score feature. These features was: \texttt{"Gerne"}, \texttt{"Title"}, \texttt{"NumVotedUsers"}, \texttt{"CastTotalFbLikes"}, \texttt{"FacesOnPoster"}, \texttt{"PlotKeywords"}, \texttt{"IMDBLink"}, \texttt{"NumUserReviews"}, \texttt{"Language"}, \texttt{"Country"} and \texttt{"ContentRating"}. From these features some can not been created before the movies release sush as \texttt{"NumVotedUsers"} and others can not affect the movie score sush as \texttt{"IMDBLink"}.\par 
@@ -184,8 +182,5 @@ You can run our code with little or no modications at all, using apache spark. T
 {\footnotesize \bibliographystyle{acm}
 \bibliography{../common/bibliography}}
 lalalalala
-
-
-
 
 \end{document}
