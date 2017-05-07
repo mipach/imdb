@@ -150,7 +150,14 @@ The \textbf{BestMoviesInCategory} prints the top ten movies in a gerne, specifie
 \end{figure}
 
 \section{Results}
-In this section we present our machine learning results and evaluate our methodology. We describe in more depth the the correlation process and discuss our evalutation.\par 
+In this section we present our machine learning results and evaluate our methodology. We describe in more depth the the correlation process and discuss our evalutation.\par
+After loading our dataset and created our dataframe contaiining the 28 movie features we drop the features that we though it will have the least impact with the imdb score feature. These features was: \texttt{"Gerne"}, \texttt{"Title"}, \texttt{"NumVotedUsers"}, \texttt{"CastTotalFbLikes"}, \texttt{"FacesOnPoster"}, \texttt{"PlotKeywords"}, \texttt{"IMDBLink"}, \texttt{"NumUserReviews"}, \texttt{"Language"}, \texttt{"Country"} and \texttt{"ContentRating"}. From these features some can not been created before the movies release sush as \texttt{"NumVotedUsers"} and others can not affect the movie score sush as \texttt{"IMDBLink"}.\par 
+
+We also need to transform the dataframe to convert the String features into numeric features. Then we procced to the correlation which is done using the \texttt{"pearson"} method. In figure 1 we present the heatmap extracted by the features correlation. The more green a cell is the more possitive it correlates with the feature in that row, and the more red a cell is the more negative weight gives in the correlation. Looking at the \texttt{"IMDBScore"} row of the matrix we found that features as \texttt{"Year"}, \texttt{"Actor2Name"}, \texttt{"DirecotrName"}, \texttt{"Actor1Name"} and \texttt{"Actor3Name"} have a negative weight in the imdb score so we drop them.
+
+Using \texttt{randomSplit} we split our dataframe to two datasets. A train dataset containing 80\% of the movies in our initial dataset and a test dataset containing the remaing 20\%. We produce our pipeline model by fitting the training data to our pipeline. The testing data will go though our model to produce the prediction results.\par 
+
+To evaluate our data we created a val \texttt{RegressionEvaluator} which we feed with our previous predictions. The room mean square error we had was 1.02 which considering our features and that the rating scale is from 0 to 10 is acceptable.
 
 \section{Conclusion}
 
