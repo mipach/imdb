@@ -51,7 +51,7 @@ csd3161@csd.uoc.gr
 
 
 \subsection*{Abstract}
-As the number of movies released continuously grows, viewers are flooded with information about several movie productions, making the simplest questions like "What movie to see tonight?" really hard to answer. Also movie production studios would like to know if a movie could be a commercial success in order to invest money in it.\par In this work \textbf{i.} we provide a simple question interface so the users can find movies matching on his/her creteria, \textbf{ii.} we provide an interface to answer statistic related questions about any movie dataset and \textbf{iii.} we provide predictions about a movies imdb score based on Machine Learning.\\
+\par As the number of movies released continuously grows, viewers are flooded with information about several movie productions, making the simplest questions like "What movie to see tonight?" really hard to answer. Also movie production studios would like to know if a movie could be a commercial success in order to invest money in it.\par In this work \textbf{i.} we provide a simple question interface so the users can find movies matching on his/her creteria, \textbf{ii.} we provide an interface to answer statistic related questions about any movie dataset and \textbf{iii.} we provide predictions about a movies imdb score based on Machine Learning.\\
 \\
 \textbf{Keywords} Machine Learning; imdb; prediction; spark; statistics; recommendations
 
@@ -65,33 +65,18 @@ More fascinating text. Features\endnote{Remember to use endnotes, not footnotes!
 
 \section{Dataset}
 
-Some embedded literal typset code might 
-look like the following :
+\par The dataset was created at 2016 by [NAME], who used it on an article at [SITE NAME][CITE] and can be found, copyright-free and free of charge, at Kaggle[CITE]. The dataset is consisted of 5043 lines, each line representing a movie, and 28 columns, depicting its characteristics. The size of the dataset is 579.78KB and the format of the data is text, containing both alpharithmetic and numeric values.\par Since the data are originated from IMDB, we do not expect any biases, regarding the scores and the validity of movie characteristics such as the actors' lineup and the director. Still, even though the dataset has enough data for the small-scaled experiments we conducted, some of its flaws are mentioned by its creator and we ought to point them out as well. In some cases, the columns have blank fields, which gave an error output, if left unhandled prior to the construction of the ML model. Moreover, the currency depicting the gross income of the movies is, in some cases, not US dollars, but the local currency used in the country the movie is originated from (i.e. Chinese movies' gross has the Chinese RMB currency). The inflation factors are not taken into consideration, it goes without saying that 1000US dollars did not have the same value at 1920s as they do nowadays, and we do not take any particular actions regarding this matter, due to the high complexity of the conversion and the little impact to the resulting ML model. \par Below, we present the 28 characteristics of the datasets, with a minor description for each one as to its type and what it describes:
 
-{\tt \small
-\begin{verbatim}
-int wrap_fact(ClientData clientData,
-              Tcl_Interp *interp,
-              int argc, char *argv[]) {
-    int result;
-    int arg0;
-    if (argc != 2) {
-        interp->result = "wrong # args";
-        return TCL_ERROR;
-    }
-    arg0 = atoi(argv[1]);
-    result = fact(arg0);
-    sprintf(interp->result,"%d",result);
-    return TCL_OK;
-}
-\end{verbatim}
-}
+\begin{itemize}
+\item \textbf{color}: Binary alpharithmetic variable with possible values “Color” or “Black and White”.
+\item \textbf{director\_name}: Categorical alpharithmetic variable, with its value describing which is the director of the movie.
+\item \textbf{num\_critic\_for\_reviews}: Numeric variable, with its value describing how many reviews are written for the movie by critics.
+\item \textbf{duration}: Numeric variable, with its value describing how long the film lasts.
 
-Now we're going to cite somebody.  Watch for the cite tag.
-Here it comes~\cite{Chaum1981,Diffie1976}.  The tilde character (\~{})
-in the source means a non-breaking space.  This way, your reference will
-always be attached to the word that preceded it, instead of going to the
-next line.
+
+
+\end{itemize}
+
 
 \section{Implementation}
 We select to implement three different functionalities. The first one targets mostly the movie production studios and is about movie score predictions. The other two are statistics about the movies contained in the dataset and movie recommendations and they mostly target the simple viewers. \par 
