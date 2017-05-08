@@ -64,7 +64,7 @@ csd3161@csd.uoc.gr
 \par Section 2 describes the datasets used for the creation of the filters and the ML model. Section 3 describes their implementation. Section 4 presents the results of the ML model, regarding its accuracy and compares it with implementations found in the literature.In Section 5, we come to a conclusion, as to our experiments and in Section 6, we give out our source code, since the whole project is open-source and part of a class for the university.
 \section{Dataset}
 
-\par The dataset was created at 2016 by [NAME], who used it on an article at [SITE NAME][CITE] and can be found, copyright-free and free of charge, at Kaggle[CITE]. The dataset is consisted of 5043 lines, each line representing a movie, and 28 columns, depicting its characteristics. The size of the dataset is 579.78KB and the format of the data is text, containing both alpharithmetic and numeric values.\par Since the data are originated from IMDB, we do not expect any biases, regarding the scores and the validity of movie characteristics such as the actors' lineup and the director. Still, even though the dataset has enough data for the small-scaled experiments we conducted, some of its flaws are mentioned by its creator and we ought to point them out as well. In some cases, the columns have blank fields, which gave an error output, if left unhandled prior to the construction of the ML model. Moreover, the currency depicting the gross income of the movies is, in some cases, not US dollars, but the local currency used in the country the movie is originated from (i.e. Chinese movies' gross has the Chinese RMB currency). The inflation factors are not taken into consideration, it goes without saying that 1000US dollars did not have the same value at 1920s as they do nowadays, and we do not take any particular actions regarding this matter, due to the high complexity of the conversion and the little impact to the resulting ML model. \par Below, we present the 28 characteristics of the datasets, with a minor description for each one as to its type and what it describes:
+\par The dataset was created at 2016 by [NAME], who used it on an article at [SITE NAME][CITE] and can be found, copyright-free and free of charge, at Kaggle[CITE]. The dataset is consisted of 5043 lines, each line representing a movie, and 28 columns, depicting its characteristics. The size of the dataset is 579.78KB and the format of the data is text, containing both alpharithmetic and numeric values.\par Since the data are originated from IMDB, we do not expect any biases, regarding the scores and the validity of movie characteristics such as the actors' lineup and the director. Still, even though the dataset has enough data for the small-scaled experiments we conducted, some of its flaws are mentioned by its creator and we ought to point them out as well. In some cases, the columns have blank fields, which gave an error output, if left unhandled prior to the construction of the ML model. Moreover, the currency depicting the gross income of the movies is, in some cases, not US dollars, but the local currency used in the country where the movie is originated from (i.e. Chinese movies' gross has the Chinese RMB currency). The inflation factors are not taken into consideration, it goes without saying that 1000US dollars did not have the same value at 1920s as they do nowadays, and we do not take any particular actions regarding this matter, due to the high complexity of the conversion and little impact to the resulting ML model. \par Below, we present the 28 characteristics of the dataset, with a minor description for each one as to its type and what it is about:
 
 \begin{itemize}
 \item \textbf{color}: Binary alpharithmetic variable with possible values “Color” or “Black and White”.
@@ -82,8 +82,8 @@ csd3161@csd.uoc.gr
 \item \textbf{num\_voted\_users}: Numeric variable, with its value containing the number of users who rated this film.
 \item \textbf{cast\_total\_facebook\_likes}: Numeric variable, with its value containing the total number of likes of the whole cast in the facebook.com .
 \item \textbf{actor\_3\_name}: Alpharithmetic variable, contains the full name of the third actor.
-\item \textbf{Plot\_keywords}: Alpharithmetic variable, contains the plot keywords separated by lines "\textbar".
-\item \textbf{Movie\_imdb\_link}: Alpharithmetic variable, contains the IMDB link for the movie. 
+\item \textbf{plot\_keywords}: Alpharithmetic variable, contains the plot keywords separated by lines "\textbar".
+\item \textbf{movie\_imdb\_link}: Alpharithmetic variable, contains the IMDB link for the movie. 
 \item \textbf{language}: Alpharithmetic variable, contains the main language that the actors speak in the movie.
 \item \textbf{actor\_2\_facebook\_likes}: Numeric variable, with its value describing how many likes the second actor (in lineup order) has on facebook.com . 
 \item \textbf{num\_user\_for\_reviews}: Numeric variable, with its value describing how many reviews are written for the movie by users.
@@ -92,13 +92,12 @@ csd3161@csd.uoc.gr
 \item \textbf{country}: Categorical alpharithmetic variable, contains the name of the country that the movie was shot.
 \item \textbf{content\_rating}:  Categorical alpharithmetic variable, describing the viewers minimum age which the movie is appropriate.
 \item \textbf{budget}: Numeric variable, with its value describing how much money the movie production costs.
-\item \textbf{title\_year}: Numeric variable, with its value describing when the movie released in cinemas.
-\item \textbf{imdb\_score}: Numeric variable, with its value describing when the movie released in cinemas.
+\item \textbf{title\_year}: Numeric variable, with its value describing the year the movie was released in cinemas.
+\item \textbf{imdb\_score}: Numeric variable, with its value describing the overall movie score in imdb.com.
 \item \textbf{aspect\_ratio}: Numeric variable, with its value describing the aspect ratio of the movie.
 \end{itemize}
 
-\begin{figure*}
-	
+\begin{figure*}	
 	\includegraphics[width = \textwidth,height=6.2cm]{correlation_matrix_image}
 	\caption{heatmap of the correlation matrix}
 \end{figure*}
