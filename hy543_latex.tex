@@ -64,7 +64,7 @@ csd3161@csd.uoc.gr
 \par Section 2, describes the datasets used for the creation of the filters and the ML model. Section 3, describes their implementation. Section 4, presents the results of the ML model, regarding its accuracy and compares it with implementations found in the literature. In Section 5, we come to a conclusion, as to our experiments and in Section 6, we give out our source code, since the whole project is open-source and part of a class for the university.
 
 \section{Dataset}
-\par The dataset was created at 2016 by Chuan Sun, who used it on an article at nycdatascience.com[CITE] and can be found, copyright-free and free of charge, at Kaggle[CITE]. The dataset is consisted of 5043 lines, each line representing a movie, and 28 columns, depicting its characteristics. The size of the dataset is 579.78KB and the format of the data is text, containing both alpharithmetic and numeric values.\par Since the data are originated from IMDB, we do not expect any biases, regarding the scores and the validity of movie characteristics, such as the actors' lineup and the director. Still, even though the dataset has enough data for the small-scaled experiments we conducted, some of its flaws are mentioned by its creator and can create issues during the analysis setup, so we ought to point them out as well. In some cases, the columns have blank fields, which gave an error output, if left unhandled, during the construction of the ML model. The inflation factors are not taken into consideration, it goes without saying that 1000US dollars did not have the same value at 1920s as they do nowadays, and we do not take any particular actions regarding this matter, due to the high complexity of the conversion. \par Below, we present the 28 characteristics of the dataset, with a minor description for each one, as to its type and what it is about:
+\par The dataset was created at 2016 by Chuan Sun, who used it on an article at nycdatascience.com\cite{nyc} and can be found, copyright-free and free of charge, at Kaggle\cite{kaggle}. The dataset is consisted of 5043 lines, each line representing a movie, and 28 columns, depicting its characteristics. The size of the dataset is 579.78KB and the format of the data is text, containing both alpharithmetic and numeric values.\par Since the data are originated from IMDB, we do not expect any biases, regarding the scores and the validity of movie characteristics, such as the actors' lineup and the director. Still, even though the dataset has enough data for the small-scaled experiments we conducted, some of its flaws are mentioned by its creator and can create issues during the analysis setup, so we ought to point them out as well. In some cases, the columns have blank fields, which gave an error output, if left unhandled, during the construction of the ML model. The inflation factors are not taken into consideration, it goes without saying that 1000US dollars did not have the same value at 1920s as they do nowadays, and we do not take any particular actions regarding this matter, due to the high complexity of the conversion. \par Below, we present the 28 characteristics of the dataset, with a minor description for each one, as to its type and what it is about:
 
 \begin{itemize}
 \item \textbf{color}: Binary alpharithmetic variable, with possible values “Color” or “Black and White”.
@@ -104,7 +104,7 @@ csd3161@csd.uoc.gr
 
 \section{Implementation}
 We selected to implement three different functionalities. The first one targets mostly the movie production studios and is about movie score predictions. The other two are statistics about the movies, contained in the dataset and movie recommendations, which mostly target the viewers. 
-\par For our implementation, we used Apache Spark[CITE] and the Scala programming language[CITE]. In the subsection 3.1 we describe the movie predictions implementation and in the subsection 3.2, the implementation of movies statistics and recommendations.
+\par For our implementation, we used Apache Spark\cite{spark} and the Scala programming language\cite{scala}. In the subsection 3.1 we describe the movie predictions implementation and in the subsection 3.2, the implementation of movies statistics and recommendations.
 
 \subsection{Machine Learning}
 Spark provided us with MLlib, a scalable machine learning library, which is consisted of common ML algorithms and utilities. Furthermore, it gave us access to spark.ml, which aims to provide a uniform set of high-level APIs that help users to create and tune practical ML pipelines. 
@@ -176,9 +176,27 @@ You can download the code we used for the machine learning predictions, recommen
 
 You can run our code with little or no modifications at all, using Apache Spark. This code is under no license, so you can use it freely but remember to refer our work.
 
+\begin{thebibliography}{9}
+	\bibitem{nyc} 
+	Chuan Sun.
+	\\\texttt{http://blog.nycdatascience.com/student-works/
+		machine-learning/movie-rating-prediction}
+	
+	\bibitem{kaggle} 
+	Chuan Sun - Kaggle competition.
+	\\\texttt{https://www.kaggle.com/deepmatrix/
+		imdb-5000-movie-dataset}
+	
+	\bibitem{spark} 
+	Apache Spark.
+	\\\texttt{https://spark.apache.org}
+	
+	\bibitem{scala} 
+	Scala Programming Language.
+	\\\texttt{https://www.scala-lang.org}
+\end{thebibliography}
 
-{\footnotesize \bibliographystyle{acm}
-\bibliography{../common/bibliography}}
-lalalalala
+
+
 
 \end{document}
